@@ -5,4 +5,6 @@ import com.lyscharlie.biz.entity.User;
 
 public interface UserMapper extends BaseMapper<User> {
 
+	public Integer selectCountByRegisterReferId(Long registerReferId);
+
 }
