@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /lyscharlie
 
+logPath: /Users/liyishi/Work/logs/lyscharlie
+
 spring:
   datasource:
     name: mysql_db
