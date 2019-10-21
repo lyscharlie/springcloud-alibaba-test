@@ -9,7 +9,7 @@ import lombok.Data;
 
 @TableName(value = "lys_area")
 @Data
-public class Area {
+public class AreaDO {
 
 	/**
 	 * 地区id
@@ -25,7 +25,7 @@ public class Area {
 	 * 地区等级：1-国家，2-省，3-市，4-区/县/镇
 	 */
 	@TableField(value = "area_level")
-	private String areaLevel;
+	private Integer areaLevel;
 	/**
 	 * 地区信息
 	 */
@@ -35,11 +35,11 @@ public class Area {
 	 * 上级地区id
 	 */
 	@TableField(value = "parent_id")
-	private String parentId;
+	private Long parentId;
 	/**
-	 * 上级地区id
+	 * 状态：1-启用，2-停用
 	 */
 	@TableField(value = "status")
-	private String status;
+	private Integer status;
 
 }

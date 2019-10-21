@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @TableName(value = "lys_user")
-public class User {
+public class UserDO {
 
 	/**
 	 * 用户id

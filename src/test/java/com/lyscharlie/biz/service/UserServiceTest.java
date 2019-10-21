@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.lyscharlie.MyApplication;
-import com.lyscharlie.biz.entity.User;
+import com.lyscharlie.biz.entity.UserDO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = MyApplication.class)
@@ -24,7 +24,7 @@ public class UserServiceTest {
 	@Test
 	public void testSaveOrUpdate() {
 
-		User user = new User();
+		UserDO user = new UserDO();
 		user.setUserId(7L);
 		user.setUserName("test_001");
 		user.setPassword(DigestUtils.md5Hex("123456"));
