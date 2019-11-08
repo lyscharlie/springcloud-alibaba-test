@@ -74,4 +74,19 @@ public class AreaMapperTest {
 		Assert.assertTrue(null != page);
 	}
 
+	@Test
+	public void testSelectObjs() {
+		List<Object> objectList = this.areaMapper.selectObjs(new QueryWrapper<AreaDO>().select("area_id").eq("area_level", 2).eq("parent_id", 1).orderByAsc("area_id"));
+		System.out.println(JSONObject.toJSONString(objectList));
+		Assert.assertTrue(!CollectionUtils.isEmpty(objectList));
+	}
+
+	@Test
+	public void testSelectMaps() {
+		List<Map<String, Object>> mapList = this.areaMapper.selectMaps(new QueryWrapper<AreaDO>().select("area_id", "area_name").eq("area_level", 2).eq("parent_id", 1).orderByAsc(
+				"area_id"));
+		System.out.println(JSONObject.toJSONString(mapList));
+		Assert.assertTrue(!CollectionUtils.isEmpty(mapList));
+	}
+
 }
