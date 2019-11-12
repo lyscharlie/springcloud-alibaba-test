@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lyscharlie</groupId>
-    <artifactId>springboot2-mybatsplus</artifactId>
+    <artifactId>springboot2-mybatisplus-dynamic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot2-mybatsplus</name>
+    <name>springboot2-mybatisplus-dynamic</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -38,6 +38,10 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -55,18 +59,18 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- alibaba的druid数据库连接池 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.20</version>
-        </dependency>
-
         <!-- mybatisplus -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.2.0</version>
+        </dependency>
+
+        <!-- mybatisplus多数据源 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>2.5.7</version>
         </dependency>
 
         <!-- fastjson -->
