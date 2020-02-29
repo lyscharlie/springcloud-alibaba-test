@@ -1,4 +1,4 @@
-package com.lyscharlie.common;
+package com.lyscharlie.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

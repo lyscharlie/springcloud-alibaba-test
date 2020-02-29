@@ -47,4 +47,18 @@ public class UserServiceTest {
 		Assert.assertTrue(this.userService.removeById(userId));
 	}
 
+	@Test
+	public void testRandomUser() {
+		UserDO user = this.userService.randomUser();
+		Assert.assertTrue(null != user);
+	}
+
+	@Test
+	public void testFindUserByNameAndPassword() {
+		String userName = "abc";
+		String password = "123456";
+
+		UserDO user = this.userService.findUserByNameAndPassword(userName, password);
+		Assert.assertTrue(null != user);
+	}
 }

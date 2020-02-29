@@ -1,4 +1,4 @@
-package com.lyscharlie.common;
+package com.lyscharlie.common.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ public class SwaggerConfig {
 	private boolean enableSwagger;
 
 	@Bean
-	public Docket customDocket() {
+	public Docket createAllRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.enable(enableSwagger)
 				.apiInfo(apiInfo())

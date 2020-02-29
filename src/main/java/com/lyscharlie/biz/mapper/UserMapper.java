@@ -9,4 +9,6 @@ public interface UserMapper extends BaseMapper<UserDO> {
 
 	public Integer selectCountByRegisterReferId(Long registerReferId);
 
+	public UserDO selectRandomUser();
+
 }
