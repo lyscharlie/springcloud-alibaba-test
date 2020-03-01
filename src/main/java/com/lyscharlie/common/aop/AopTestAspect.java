@@ -80,13 +80,8 @@ public class AopTestAspect {
 		log.info("after doing: {}", joinPoint.getSignature().toString());
 	}
 
-	// 匹配以指定名字结尾的 Bean 中的所有方法
-	@Pointcut("bean(*Controller)")
-	public void pointcut3() {
-
-	}
-
-	@Around("pointcut3()")
+	// pointcut与advice合并配置，匹配以指定名字结尾的 Bean 中的所有方法
+	@Around("bean(*Controller)")
 	public Object doSomething3(ProceedingJoinPoint pjp) throws Throwable {
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 		HttpServletRequest request = requestAttributes.getRequest();
