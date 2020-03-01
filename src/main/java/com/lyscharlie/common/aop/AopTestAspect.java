@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Aspect
 @Slf4j
-public class AopConfig {
+public class AopTestAspect {
 
 	// 指定注解类型
 	@Pointcut("@annotation(com.lyscharlie.common.annotation.EagleEye)")
