@@ -16,7 +16,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lyscharlie.common.annotation.EagleEye;
 
@@ -89,7 +91,20 @@ public class AopTestAspect {
 		log.info("请求连接：{}", request.getRequestURL().toString());
 		log.info("请求类型：{}", request.getMethod());
 		log.info("请求IP：{}", request.getRemoteAddr());
-		log.info("请求入参：{}", JSONObject.toJSONString(pjp.getArgs()));
+		try {
+			boolean isFile = false;
+			for (Object arg : pjp.getArgs()) {
+				if(arg instanceof MultipartFile){
+					isFile = true;
+					break;
+				}
+			}
+			if(!isFile) {
+				log.info("请求入参：{}", JSON.toJSONString(pjp.getArgs()));
+			}
+		} catch (Exception e) {
+			log.error("AopTestAspect.doSomething3", e);
+		}
 
 		Object result = pjp.proceed();
 

@@ -33,3 +33,6 @@ mybatis-plus:
 
 swagger:
   enable: true
+
+file:
+  path: /Users/liyishi/Work/data/test/upload
