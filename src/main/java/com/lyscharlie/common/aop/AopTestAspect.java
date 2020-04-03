@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lyscharlie.common.annotation.EagleEye;
+import com.lyscharlie.common.annotation.RetryMethod;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -55,9 +56,45 @@ public class AopTestAspect {
 
 		log.info("invoke method: " + pjp.getSignature().getName() + ", elapsed time: " + stopWatch.getTotalTimeMillis());
 
-		log.info("aop around fininsh");
+		log.info("aop around finish");
 
 		return retVal;
+	}
+
+	@Around("@annotation(com.lyscharlie.common.annotation.RetryMethod)")
+	public Object doRetry(ProceedingJoinPoint pjp) throws Throwable {
+		log.info("aop after doRetry start");
+
+		MethodSignature signature = (MethodSignature) pjp.getSignature();
+		Method method = signature.getMethod();
+		RetryMethod retryMethod = method.getAnnotation(RetryMethod.class);
+
+		int times = retryMethod.times();
+		int runTimes = 0;
+
+		Object returnValue;
+
+		do {
+
+			returnValue = pjp.proceed();
+			runTimes++;
+
+			log.info("runTimes is {}", runTimes);
+
+			if (returnValue instanceof Boolean) {
+				boolean value = ((Boolean) returnValue).booleanValue();
+				if (value) {
+					break;
+				}
+			}else{
+				break;
+			}
+
+		} while (runTimes <= times);
+
+		log.info("aop after doRetry finish");
+
+		return returnValue;
 	}
 
 	// 匹配包中的指定类的所有方法
@@ -94,12 +131,12 @@ public class AopTestAspect {
 		try {
 			boolean isFile = false;
 			for (Object arg : pjp.getArgs()) {
-				if(arg instanceof MultipartFile){
+				if (arg instanceof MultipartFile) {
 					isFile = true;
 					break;
 				}
 			}
-			if(!isFile) {
+			if (!isFile) {
 				log.info("请求入参：{}", JSON.toJSONString(pjp.getArgs()));
 			}
 		} catch (Exception e) {

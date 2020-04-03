@@ -36,3 +36,12 @@ swagger:
 
 file:
   path: /Users/liyishi/Work/data/test/upload
+
+test:
+  list:
+    - liyishi
+    - lyscharlie
+    - lyscharlie1983
+    - charlie
+    - Charlie Li
+    - Li Yishi
