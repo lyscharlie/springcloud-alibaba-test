@@ -37,11 +37,17 @@ swagger:
 file:
   path: /Users/liyishi/Work/data/test/upload
 
-test:
-  list:
-    - liyishi
-    - lyscharlie
-    - lyscharlie1983
-    - charlie
-    - Charlie Li
-    - Li Yishi
+my:
+  arr: a,b,c,d
+  test:
+    list:
+      - liyishi
+      - lyscharlie
+      - lyscharlie1983
+      - charlie
+      - Charlie Li
+      - Li Yishi
+    map:
+      key1: value1
+      key2: value2
+      key3: value3
