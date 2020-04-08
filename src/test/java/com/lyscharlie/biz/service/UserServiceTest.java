@@ -11,11 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.lyscharlie.MyApplication;
+import com.lyscharlie.SpringTestApplication;
 import com.lyscharlie.biz.entity.UserDO;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MyApplication.class)
+@SpringBootTest(classes = SpringTestApplication.class)
 public class UserServiceTest {
 
 	@Autowired
