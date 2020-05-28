@@ -46,7 +46,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -61,6 +61,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- nacos -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>2.1.2.RELEASE</version>
         </dependency>
 
         <!-- mybatisplus -->
@@ -141,6 +148,13 @@
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>3.8.3</version>
+        </dependency>
+
+        <!-- nacos -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>2.1.2.RELEASE</version>
         </dependency>
     </dependencies>
 
