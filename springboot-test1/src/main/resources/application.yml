@@ -22,7 +22,7 @@ spring:
     password: 2110857
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
+    time-zone: Asia/Shanghai
 
 
 mybatis-plus:
